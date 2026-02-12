@@ -12,6 +12,7 @@ This tool automatically downloads geological maps from Tasmania's comprehensive 
 - Statewide Maps (1:500,000 scale)
 - Mount Read Volcanics
 - Tasmanian Landslide Map Series
+- **Radiometric data** (K, Th, U) via WMS - see [RADIOMETRIC_GUIDE.md](RADIOMETRIC_GUIDE.md)
 
 **Total: 390 map sheets** available in multiple formats (PDF, TIF, ECW).
 
@@ -317,6 +318,31 @@ This creates index files with map sheet boundaries and attributes:
 5. Click polygons to identify which PDF to open for legends
 
 See [MOSAIC_GUIDE.md](MOSAIC_GUIDE.md) for detailed instructions.
+
+## Radiometric Data (Airborne Gamma-Ray)
+
+Access airborne radiometric data showing potassium (K), thorium (Th), and uranium (U) concentrations:
+
+**Coverage:**
+- King Island
+- North West Tasmania
+- North East Tasmania
+- Flinders Island
+
+**Resolution:** 40m cell size
+
+**Quick Start:**
+1. Open QGIS
+2. Layer → Add WMS/WMTS Layer
+3. New connection:
+   - Name: `MRT Radiometric`
+   - URL: `https://www.mrt.tas.gov.au/erdas-iws/ogc/wms/?`
+4. Add RGB composite layers (Red=K, Green=Th, Blue=U)
+
+See [RADIOMETRIC_GUIDE.md](RADIOMETRIC_GUIDE.md) for complete instructions, including:
+- How to interpret radiometric signatures
+- Accessing data via Geoscience Australia
+- Requesting full-resolution grids from MRT
 
 ## Metadata
 

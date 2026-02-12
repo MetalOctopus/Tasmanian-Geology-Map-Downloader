@@ -1,0 +1,53 @@
+# Tasmania Radiometric WMS Layers Reference
+
+WMS Service URL: https://www.mrt.tas.gov.au/erdas-iws/ogc/wms/?
+
+## Quick Add to QGIS:
+1. Layer → Add WMS/WMTS Layer
+2. New connection → URL: https://www.mrt.tas.gov.au/erdas-iws/ogc/wms/?
+3. Select layers below
+
+## RECOMMENDED LAYERS (RGB Composites):
+King_Island_k_th_u_r_g_b.ecw              ⭐ King Island RGB
+North_West_Tasmania_k_th_u_r_g_b.ecw      ⭐ NW Tasmania RGB
+North_East_Tasmania_k_th_u_rgb.ecw        ⭐ NE Tasmania RGB
+Flinders_Island_k_th_u_rgb.ecw            ⭐ Flinders Island RGB
+
+## Individual Elements - King Island:
+King_Island_k_nwsun.ecw          Potassium
+King_Island_th_nwsun.ecw         Thorium
+King_Island_u_nwsun.ecw          Uranium
+King_Island_tc_nwsun.ecw         Total Count
+
+## Individual Elements - North West Tasmania:
+North_West_Tasmania_k_nwsun.ecw      Potassium
+North_West_Tasmania_th_nwsun.ecw     Thorium
+North_West_Tasmania_u_nwsun.ecw      Uranium
+North_West_Tasmania_tc_nwsun.ecw     Total Count
+
+## Individual Elements - North East Tasmania:
+North_East_Tasmania_k_nwsun.ecw          Potassium
+North_East_Tasmania_th_nwsun.ecw         Thorium
+North_East_Tasmania_u_nwsun.ecw          Uranium
+North_East_Tasmania_totaldose_nwsun.ecw  Total Count
+
+## Individual Elements - Flinders Island:
+Flinders_Island_k_nwsun.ecw          Potassium
+Flinders_Island_th_nwsun.ecw         Thorium
+Flinders_Island_u_nwsun.ecw          Uranium
+Flinders_Island_totaldose_nwsun.ecw  Total Count
+
+## RGB Interpretation:
+Red   = Potassium (K) - Dolerite, altered zones
+Green = Thorium (Th)  - Granites, felsic rocks
+Blue  = Uranium (U)   - Granites, mineralization
+
+## Data Specs:
+Resolution: 40m cell size
+Projection: GDA94 / MGA Zone 55 (EPSG:28355)
+Source: Airborne gamma-ray spectrometric surveys
+Provider: Mineral Resources Tasmania
+
+## Contact for Full Resolution Data:
+Email: info@mrt.tas.gov.au
+Phone: (03) 6165 4800
