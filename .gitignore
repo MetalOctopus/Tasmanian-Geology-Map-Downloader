@@ -1,6 +1,8 @@
-# Downloaded maps
+# Downloaded maps and data
 tas_geological_maps/
 map_sheets/
+tas_mineral_data/
+tas_radiometric_data/
 
 # Metadata files (optional - comment out if you want to include them)
 *.json
