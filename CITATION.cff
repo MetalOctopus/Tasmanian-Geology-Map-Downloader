@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Tasmania Geological Maps Downloader"
+abstract: "Automated tool for downloading geological maps from Mineral Resources Tasmania's Digital Geological Atlas"
+authors:
+  - family-names: "Tasmania Maps Project"
+    given-names: "Contributors"
+repository-code: "https://github.com/MetalOctopus/Tasmanian-Geology-Map-Downloader"
+keywords:
+  - geology
+  - tasmania
+  - maps
+  - geoscience
+  - GIS
+license: MIT

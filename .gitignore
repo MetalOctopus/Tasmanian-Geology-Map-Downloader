@@ -1,0 +1,34 @@
+# Downloaded maps
+tas_geological_maps/
+map_sheets/
+
+# Metadata files (optional - comment out if you want to include them)
+*.json
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test/development scripts
+test_*.py
+inspect_*.py
