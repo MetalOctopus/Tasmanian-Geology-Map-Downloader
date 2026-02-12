@@ -5,6 +5,10 @@ map_sheets/
 # Metadata files (optional - comment out if you want to include them)
 *.json
 
+# Mosaic/VRT files (generated - can be recreated)
+# Uncomment to exclude VRT files from git:
+# *.vrt
+
 # Python
 venv/
 __pycache__/
