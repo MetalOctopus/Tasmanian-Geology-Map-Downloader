@@ -2,6 +2,8 @@
 
 A Python tool to download all geological map sheets from [Mineral Resources Tasmania's Digital Geological Atlas](https://www.mrt.tas.gov.au/products/geoscience_maps).
 
+*This was written by Claude, so don't expect any interesting comments. Making it public in case someone else wants an easy way to get the data from MRT.*
+
 ## Overview
 
 This tool automatically downloads geological maps from Tasmania's comprehensive geoscience collection, including:
