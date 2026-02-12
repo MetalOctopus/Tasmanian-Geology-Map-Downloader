@@ -25,17 +25,22 @@ This tool automatically downloads geological maps from Tasmania's comprehensive 
 - ✅ Resumes interrupted downloads (skips existing files)
 - ✅ Metadata export to JSON
 - ✅ Dry-run mode for testing
+- ✅ **Create VRT mosaics** - Stitch all maps into seamless layers
+- ✅ **Generate index vectors** - Map sheet boundaries with names for finding PDFs
 
 ## Project Structure
 
 ```
 TAS_Maps/
 ├── download_all_maps.py        # Main download script
+├── create_mosaics.sh           # Create VRT mosaics from TIFs
+├── create_index_vectors.py     # Generate map sheet boundary vectors
 ├── show_summary.py             # Display map counts by series
 ├── monitor_download.sh         # Real-time download monitor
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
 ├── QUICKSTART.md              # Quick start guide
+├── MOSAIC_GUIDE.md            # Guide for creating/using mosaics
 ├── LICENSE                     # MIT License
 ├── DATA_ATTRIBUTION.md        # How to cite the map data
 ├── CITATION.cff               # Software citation
@@ -268,6 +273,50 @@ The script automatically skips files that already exist, so you can safely:
 1. Stop a download (Ctrl+C)
 2. Re-run the same command
 3. It will resume where it left off
+
+## Creating Mosaics and Index Layers
+
+### VRT Mosaics (Recommended!)
+
+Stitch all TIF files into seamless virtual rasters:
+
+```bash
+./create_mosaics.sh
+```
+
+This creates VRT files in each scale directory:
+- `Digital_Geological_Atlas/1-25000/mosaic_geology_1-25k.vrt`
+- `Geological_Atlas/1-50000_and_1-63360/mosaic_geology_1-50k.vrt`
+- And more...
+
+**Benefits:**
+- Tiny file size (few hundred KB)
+- Instant creation
+- Displays all maps as single layer in QGIS
+- No data duplication
+
+### Map Sheet Index Vectors
+
+Create GeoJSON files showing map sheet boundaries:
+
+```bash
+source venv/bin/activate
+python3 create_index_vectors.py
+```
+
+This creates index files with map sheet boundaries and attributes:
+- Map name and number
+- Publication date
+- Path to corresponding PDF (for legends)
+
+**Use in QGIS:**
+1. Load the VRT mosaic as base layer
+2. Load the index GeoJSON as overlay
+3. Style with transparent fill and bright outline
+4. Label with map names
+5. Click polygons to identify which PDF to open for legends
+
+See [MOSAIC_GUIDE.md](MOSAIC_GUIDE.md) for detailed instructions.
 
 ## Metadata
 
