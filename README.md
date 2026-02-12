@@ -6,15 +6,22 @@ A Python tool to download all geological map sheets from [Mineral Resources Tasm
 
 ## Overview
 
-This tool automatically downloads geological maps from Tasmania's comprehensive geoscience collection, including:
+This tool automatically downloads geological maps and geophysical data from Tasmania's comprehensive geoscience collection, including:
+
+**Geological Maps:**
 - Digital Geological Atlas (1:25,000 and 1:250,000 scales)
 - Geological Atlas (1:50,000 and 1:63,360 scales)
 - Statewide Maps (1:500,000 scale)
 - Mount Read Volcanics
 - Tasmanian Landslide Map Series
-- **Radiometric data** (K, Th, U) via WMS - see [RADIOMETRIC_GUIDE.md](RADIOMETRIC_GUIDE.md)
 
-**Total: 390 map sheets** available in multiple formats (PDF, TIF, ECW).
+**Geophysical Data:**
+- **Aeromagnetic** (TMI, RTP, 1VD, tilt) - see `download_magnetics.py`
+- **Radiometric** (K, Th, U) - see `download_radiometric_gdal.py`
+- **Gravity** (residual Bouguer)
+- **Mineral Occurrences** (8,295 deposits/mines)
+
+**Total: 390 map sheets + geophysical grids + mineral database**
 
 ## Features
 
@@ -339,10 +346,40 @@ Access airborne radiometric data showing potassium (K), thorium (Th), and uraniu
    - URL: `https://www.mrt.tas.gov.au/erdas-iws/ogc/wms/?`
 4. Add RGB composite layers (Red=K, Green=Th, Blue=U)
 
-See [RADIOMETRIC_GUIDE.md](RADIOMETRIC_GUIDE.md) for complete instructions, including:
-- How to interpret radiometric signatures
-- Accessing data via Geoscience Australia
-- Requesting full-resolution grids from MRT
+See [RADIOMETRIC_GUIDE.md](RADIOMETRIC_GUIDE.md) and [MINERAL_RADIOMETRIC_GUIDE.md](MINERAL_RADIOMETRIC_GUIDE.md) for complete instructions.
+
+## Magnetic & Gravity Data
+
+Download aeromagnetic and gravity data for structural mapping and exploration:
+
+```bash
+source venv/bin/activate
+python3 download_magnetics.py
+```
+
+**What you get:**
+- State-wide magnetic compilations (TMI, RTP, 1VD, tilt)
+- Regional high-resolution magnetics (40m)
+- Gravity residual grid
+
+**Use for:**
+- Structural/fault mapping (1VD, tilt)
+- Lithology discrimination (TMI + radiometrics)
+- Basement depth estimation (gravity)
+- Exploration targeting
+
+## Mineral Occurrences Database
+
+Download 8,295 mineral deposits, mines, and prospects:
+
+```bash
+mkdir -p tas_mineral_data
+ogr2ogr -f "ESRI Shapefile" tas_mineral_data/mineral_occurrences.shp \
+  "WFS:http://www.mrt.tas.gov.au/web-services/wfs" \
+  "mrtwfs:MineralOccurences"
+```
+
+Includes: Commodity, deposit type, status, geology, ore description, and references.
 
 ## Metadata
 
